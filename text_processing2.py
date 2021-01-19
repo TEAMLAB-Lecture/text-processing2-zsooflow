@@ -28,7 +28,33 @@ def digits_to_words(input_string):
             >>> tp2.digits_to_words(digits_str2)
             'three one four one five'
     """
-    digit_string = None
+    digit_string = ""
+    for word in input_string:
+        if word.isdigit():
+            if word == "1":
+                digit_string += "one "
+            elif word == "2":
+                digit_string += "two "
+            elif word == "3":
+                digit_string += "three "
+            elif word == "4":
+                digit_string += "four "
+            elif word == "5":
+                digit_string += "five "
+            elif word == "6":
+                digit_string += "six "
+            elif word == "7":
+                digit_string += "seven "
+            elif word == "8":
+                digit_string += "eight "
+            elif word == "9":
+                digit_string += "nine "
+            elif word == "0":
+                digit_string += "zero "
+    
+    # 맨 마지막 공백 제거
+    digit_string = digit_string.rstrip()
+
     return digit_string
 
 
@@ -64,5 +90,18 @@ def to_camel_case(underscore_str):
             >>> tp2.to_camel_case(underscore_str3)
             "alreadyCamel"
     """
-    camelcase_str = None
+    camelcase_str = ""
+
+    #소문자 변환
+    underscore_str = underscore_str.lower()
+    #_로 단어 분리
+    underscore_str = underscore_str.split("_")
+
+    #각 단어의 시작을 capitalize로 (첫 단어 빼고)
+    for word in underscore_str:
+        if camelcase_str == "":
+            camelcase_str = word
+        else:
+            camelcase_str += word.capitalize()
+
     return camelcase_str
