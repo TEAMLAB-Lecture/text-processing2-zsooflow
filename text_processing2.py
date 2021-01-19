@@ -28,7 +28,33 @@ def digits_to_words(input_string):
             >>> tp2.digits_to_words(digits_str2)
             'three one four one five'
     """
-    digit_string = None
+    digit_string = ""
+    for word in input_string:
+        if word.isdigit():
+            if word == "1":
+                digit_string += "one "
+            elif word == "2":
+                digit_string += "two "
+            elif word == "3":
+                digit_string += "three "
+            elif word == "4":
+                digit_string += "four "
+            elif word == "5":
+                digit_string += "five "
+            elif word == "6":
+                digit_string += "six "
+            elif word == "7":
+                digit_string += "seven "
+            elif word == "8":
+                digit_string += "eight "
+            elif word == "9":
+                digit_string += "nine "
+            elif word == "0":
+                digit_string += "zero "
+    
+    # 맨 마지막 공백 제거
+    digit_string = digit_string.rstrip()
+
     return digit_string
 
 
@@ -64,5 +90,29 @@ def to_camel_case(underscore_str):
             >>> tp2.to_camel_case(underscore_str3)
             "alreadyCamel"
     """
-    camelcase_str = None
+    #_로 단어 분리
+    underscore_str = underscore_str.split("_")
+    print(underscore_str)
+    if len(underscore_str) == 1:
+        camelcase_str = underscore_str[0]
+        return camelcase_str
+
+    else:
+        #빈 문자열 삭제
+        underscore_str = ' '.join(underscore_str).split()
+        
+    #empty string
+    if len(underscore_str) == 0:
+        camelcase_str = ""
+    #camel case 아닐 때
+    elif len(underscore_str) != 1:
+        #소문자 시작
+        camelcase_str = underscore_str[0].lower()
+        #이후 단어 앞 대문자
+        for word in underscore_str[1:]:
+            camelcase_str += word.capitalize()
+    #camel case 일 때 
+    else:
+        camelcase_str = underscore_str[0]
+
     return camelcase_str
