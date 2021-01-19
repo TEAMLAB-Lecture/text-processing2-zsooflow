@@ -90,18 +90,14 @@ def to_camel_case(underscore_str):
             >>> tp2.to_camel_case(underscore_str3)
             "alreadyCamel"
     """
-    camelcase_str = ""
-
-    #소문자 변환
-    underscore_str = underscore_str.lower()
     #_로 단어 분리
     underscore_str = underscore_str.split("_")
-
-    #각 단어의 시작을 capitalize로 (첫 단어 빼고)
-    for word in underscore_str:
-        if camelcase_str == "":
-            camelcase_str = word
-        else:
-            camelcase_str += word.capitalize()
+    #빈 문자열 삭제
+    underscore_str = ' '.join(underscore_str).split()
+    #소문자 시작
+    camelcase_str = underscore_str[0].lower()
+    #이후 단어 앞 대문자
+    for word in underscore_str[1:]:
+        camelcase_str += word.capitalize()
 
     return camelcase_str
