@@ -107,6 +107,6 @@ def to_camel_case(underscore_str):
             camelcase_str += word.capitalize()
     #camel case 일 때 
     else:
-        camelcase_str = underscore_str
+        camelcase_str = underscore_str[0]
 
     return camelcase_str
