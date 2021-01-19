@@ -92,9 +92,15 @@ def to_camel_case(underscore_str):
     """
     #_로 단어 분리
     underscore_str = underscore_str.split("_")
-    #빈 문자열 삭제
-    underscore_str = ' '.join(underscore_str).split()
+    print(underscore_str)
+    if len(underscore_str) == 1:
+        camelcase_str = underscore_str[0]
+        return camelcase_str
 
+    else:
+        #빈 문자열 삭제
+        underscore_str = ' '.join(underscore_str).split()
+        
     #empty string
     if len(underscore_str) == 0:
         camelcase_str = ""
