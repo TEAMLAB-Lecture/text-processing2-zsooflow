@@ -94,10 +94,16 @@ def to_camel_case(underscore_str):
     underscore_str = underscore_str.split("_")
     #빈 문자열 삭제
     underscore_str = ' '.join(underscore_str).split()
-    #소문자 시작
-    camelcase_str = underscore_str[0].lower()
-    #이후 단어 앞 대문자
-    for word in underscore_str[1:]:
-        camelcase_str += word.capitalize()
+
+    #camel case 아닐 때
+    if len(underscore_str) != 1:
+        #소문자 시작
+        camelcase_str = underscore_str[0].lower()
+        #이후 단어 앞 대문자
+        for word in underscore_str[1:]:
+            camelcase_str += word.capitalize()
+    #camel case 일 때 
+    else:
+        camelcase_str = underscore_str[0]
 
     return camelcase_str
